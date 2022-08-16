@@ -19,18 +19,16 @@ public class UserRegisterDTO extends ExtendedDTO {
 
     private String password;
 
-    private Set<RoleDTO> roles;
 
     public UserRegisterDTO() {
     }
 
-    public UserRegisterDTO(UUID id, String firstName, String lastName, String email, String password, Set<RoleDTO> roles) {
+    public UserRegisterDTO(UUID id, String firstName, String lastName, String email, String password) {
         super(id);
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.roles = roles;
     }
 
     public String getFirstName() {
@@ -63,13 +61,5 @@ public class UserRegisterDTO extends ExtendedDTO {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Set<RoleDTO> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<RoleDTO> roles) {
-        this.roles = roles;
     }
 }

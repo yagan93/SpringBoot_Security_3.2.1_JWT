@@ -12,9 +12,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
+@Validated
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -41,14 +43,14 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserDTO> register(@Validated @RequestBody UserRegisterDTO userRegisterDTO) {
+    public ResponseEntity<UserDTO> register(@Valid @RequestBody UserRegisterDTO userRegisterDTO) {
         User user = userService.register(userMapper.fromUserRegisterDTO(userRegisterDTO));
         return new ResponseEntity<>(userMapper.toDTO(user), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('USER_MODIFY') && @userPermissionEvaluator.isUserAboveAge(authentication.principal.user,18)")
-    public ResponseEntity<UserDTO> updateById(@PathVariable UUID id, @Validated @RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> updateById(@PathVariable UUID id, @Valid @RequestBody UserDTO userDTO) {
         User user = userService.updateById(id, userMapper.fromDTO(userDTO));
         return new ResponseEntity<>(userMapper.toDTO(user), HttpStatus.OK);
     }

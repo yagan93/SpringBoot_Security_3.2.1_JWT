@@ -3,6 +3,7 @@ package com.example.jwt.domain.user.dto;
 import com.example.jwt.core.generic.ExtendedDTO;
 import com.example.jwt.domain.role.dto.RoleDTO;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import java.util.Set;
 import java.util.UUID;
@@ -15,7 +16,7 @@ public class UserDTO extends ExtendedDTO {
 
     @Email
     private String email;
-
+    @Valid
     private Set<RoleDTO> roles;
 
     public UserDTO() {
