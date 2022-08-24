@@ -21,7 +21,7 @@ public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserSe
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return ((UserRepository) super.getRepository()).findByEmail(email).map(UserDetailsImpl::new).orElseThrow(() -> new UsernameNotFoundException(email));
+        return ((UserRepository) repository).findByEmail(email).map(UserDetailsImpl::new).orElseThrow(() -> new UsernameNotFoundException(email));
     }
 
     @Override

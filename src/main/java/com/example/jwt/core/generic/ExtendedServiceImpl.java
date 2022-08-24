@@ -8,8 +8,8 @@ import java.util.*;
 
 public abstract class ExtendedServiceImpl<T extends ExtendedEntity> implements ExtendedService<T> {
 
-    private final ExtendedRepository<T> repository;
-    private final Logger logger;
+    protected final ExtendedRepository<T> repository;
+    protected final Logger logger;
 
     protected ExtendedServiceImpl(ExtendedRepository<T> repository, Logger logger) {
         this.repository = repository;
@@ -71,11 +71,4 @@ public abstract class ExtendedServiceImpl<T extends ExtendedEntity> implements E
         }
     }
 
-    protected ExtendedRepository<T> getRepository() {
-        return repository;
-    }
-
-    protected Logger getLogger() {
-        return logger;
-    }
 }
