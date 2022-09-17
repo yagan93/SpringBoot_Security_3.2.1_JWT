@@ -2,6 +2,7 @@ package com.example.jwt.core.generic;
 
 import com.example.jwt.domain.user.User;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -16,17 +17,8 @@ import java.util.UUID;
 public abstract class ExtendedEntity {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator",
-            parameters = {
-                    @org.hibernate.annotations.Parameter(
-                            name = "uuid_gen_strategy_class",
-                            value = "org.hibernate.id.uuid.CustomVersionOneStrategy"
-                    )
-            }
-    )
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
@@ -41,7 +33,8 @@ public abstract class ExtendedEntity {
         return id;
     }
 
-    public void setId(UUID id) {
+    public ExtendedEntity setId(UUID id) {
         this.id = id;
+        return this;
     }
 }

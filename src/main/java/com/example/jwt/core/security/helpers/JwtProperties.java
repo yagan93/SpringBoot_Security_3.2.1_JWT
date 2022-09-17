@@ -24,23 +24,26 @@ public class JwtProperties {
         return expirationMillis;
     }
 
-    public void setExpirationMillis(long expirationMillis) {
+    public JwtProperties setExpirationMillis(long expirationMillis) {
         this.expirationMillis = expirationMillis;
+        return this;
     }
 
     public String getIssuer() {
         return issuer;
     }
 
-    public void setIssuer(String issuer) {
+    public JwtProperties setIssuer(String issuer) {
         this.issuer = issuer;
+        return this;
     }
 
     public String getSecret() {
         return secret;
     }
 
-    public void setSecret(String secret) {
+    public JwtProperties setSecret(String secret) {
         this.secret = secret;
+        return this;
     }
 }

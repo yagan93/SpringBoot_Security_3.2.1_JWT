@@ -17,7 +17,8 @@ public abstract class ExtendedDTO {
         return id;
     }
 
-    public void setId(UUID id) {
+    public ExtendedDTO setId(UUID id) {
         this.id = id;
+        return this;
     }
 }

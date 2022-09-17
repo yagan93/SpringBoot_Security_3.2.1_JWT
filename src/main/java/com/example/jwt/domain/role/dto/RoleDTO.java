@@ -31,15 +31,17 @@ public class RoleDTO extends ExtendedDTO {
         return name;
     }
 
-    public void setName(String name) {
+    public RoleDTO setName(String name) {
         this.name = name;
+        return this;
     }
 
     public Set<AuthorityDTO> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Set<AuthorityDTO> authorities) {
+    public RoleDTO setAuthorities(Set<AuthorityDTO> authorities) {
         this.authorities = authorities;
+        return this;
     }
 }

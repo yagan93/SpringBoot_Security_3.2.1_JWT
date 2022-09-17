@@ -16,9 +16,6 @@ public class Role extends ExtendedEntity {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    Set<User> users = new HashSet<>();
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "role_authority",
@@ -30,34 +27,27 @@ public class Role extends ExtendedEntity {
     public Role() {
     }
 
-    public Role(UUID id, String name, Set<Authority> authorities, Set<User> users) {
+    public Role(UUID id, String name, Set<Authority> authorities) {
         super(id);
         this.name = name;
         this.authorities = authorities;
-        this.users = users;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Role setName(String name) {
         this.name = name;
+        return this;
     }
 
     public Set<Authority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Set<Authority> authorities) {
+    public Role setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
+        return this;
     }
 }

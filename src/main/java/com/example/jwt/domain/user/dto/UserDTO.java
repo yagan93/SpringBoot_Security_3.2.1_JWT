@@ -16,6 +16,7 @@ public class UserDTO extends ExtendedDTO {
 
     @Email
     private String email;
+
     @Valid
     private Set<RoleDTO> roles;
 
@@ -34,31 +35,35 @@ public class UserDTO extends ExtendedDTO {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public UserDTO setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public UserDTO setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public UserDTO setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public Set<RoleDTO> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<RoleDTO> roles) {
+    public UserDTO setRoles(Set<RoleDTO> roles) {
         this.roles = roles;
+        return this;
     }
 }

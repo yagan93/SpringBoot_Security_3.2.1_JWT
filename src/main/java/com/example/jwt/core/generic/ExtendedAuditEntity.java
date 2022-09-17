@@ -44,32 +44,35 @@ public abstract class ExtendedAuditEntity extends ExtendedEntity {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public ExtendedAuditEntity setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+        return this;
     }
 
     public User getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(User createdBy) {
+    public ExtendedAuditEntity setCreatedBy(User createdBy) {
         this.createdBy = createdBy;
+        return this;
     }
 
     public LocalDateTime getModifiedAt() {
         return modifiedAt;
     }
 
-    public void setModifiedAt(LocalDateTime modifiedAt) {
+    public ExtendedAuditEntity setModifiedAt(LocalDateTime modifiedAt) {
         this.modifiedAt = modifiedAt;
+        return this;
     }
 
     public User getLastModifiedBy() {
         return lastModifiedBy;
     }
 
-    public void setLastModifiedBy(User lastModifiedBy) {
+    public ExtendedAuditEntity setLastModifiedBy(User lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
+        return this;
     }
-
 }
