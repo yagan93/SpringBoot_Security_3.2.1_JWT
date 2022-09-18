@@ -1,4 +1,4 @@
-package com.example.jwt.core.security.helpers;
+package com.example.jwt.core.security.config;
 /*
     The following code adds support to fetch the JWT related attributes from a HashiCorp Vault.
     1) docker run --name vault -p 8200:8200 --cap-add=IPC_LOCK -e 'VAULT_DEV_ROOT_TOKEN_ID=myroot' -e 'VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200' vault
