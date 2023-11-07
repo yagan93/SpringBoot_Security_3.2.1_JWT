@@ -7,43 +7,43 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("jwt")
 public class JwtProperties {
 
-    private long expirationMillis;
-    private String issuer;
-    private String secret;
+  private long expirationMillis;
+  private String issuer;
+  private String secret;
 
-    public JwtProperties() {
-    }
+  public JwtProperties() {
+  }
 
-    public JwtProperties(long expirationMillis, String issuer, String secret) {
-        this.expirationMillis = expirationMillis;
-        this.issuer = issuer;
-        this.secret = secret;
-    }
+  public JwtProperties(long expirationMillis, String issuer, String secret) {
+    this.expirationMillis = expirationMillis;
+    this.issuer = issuer;
+    this.secret = secret;
+  }
 
-    public long getExpirationMillis() {
-        return expirationMillis;
-    }
+  public long getExpirationMillis() {
+    return expirationMillis;
+  }
 
-    public JwtProperties setExpirationMillis(long expirationMillis) {
-        this.expirationMillis = expirationMillis;
-        return this;
-    }
+  public JwtProperties setExpirationMillis(long expirationMillis) {
+    this.expirationMillis = expirationMillis;
+    return this;
+  }
 
-    public String getIssuer() {
-        return issuer;
-    }
+  public String getIssuer() {
+    return issuer;
+  }
 
-    public JwtProperties setIssuer(String issuer) {
-        this.issuer = issuer;
-        return this;
-    }
+  public JwtProperties setIssuer(String issuer) {
+    this.issuer = issuer;
+    return this;
+  }
 
-    public String getSecret() {
-        return secret;
-    }
+  public String getSecret() {
+    return secret;
+  }
 
-    public JwtProperties setSecret(String secret) {
-        this.secret = secret;
-        return this;
-    }
+  public JwtProperties setSecret(String secret) {
+    this.secret = secret;
+    return this;
+  }
 }

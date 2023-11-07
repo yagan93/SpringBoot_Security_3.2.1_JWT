@@ -13,22 +13,22 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.7.3'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.3'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.3'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.7.3'
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.5.0'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.7.17'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.17'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.17'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.7.17'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
     implementation group: 'commons-validator', name: 'commons-validator', version: '1.7'
-    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
-    implementation group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
-    implementation group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
-    implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.5.2.Final'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.3'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.3'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.3'
+    implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.5.5.Final'
 
-    annotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.5.2.Final'
-    annotationProcessor group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.7.3'
+    annotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.5.5.Final'
+    annotationProcessor group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.7.17'
 
-    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.7.3'
-    testImplementation group: 'org.springframework.security', name: 'spring-security-test', version: '5.7.3'
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.7.17'
+    testImplementation group: 'org.springframework.security', name: 'spring-security-test', version: '5.8.8'
 }
 
 tasks.named('test') {

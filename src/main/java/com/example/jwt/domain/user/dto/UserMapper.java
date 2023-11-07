@@ -7,5 +7,6 @@ import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UserMapper extends ExtendedMapper<User, UserDTO> {
-    User fromUserRegisterDTO(UserRegisterDTO dto);
+
+  User fromUserRegisterDTO(UserRegisterDTO dto);
 }

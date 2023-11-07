@@ -1,37 +1,32 @@
 package com.example.jwt.domain.authority;
 
 import com.example.jwt.core.generic.ExtendedEntity;
-import com.example.jwt.domain.role.Role;
-
+import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "authority")
 public class Authority extends ExtendedEntity {
 
-    @Column(name = "name", nullable = false, unique = true)
-    private String name;
+  @Column(name = "name", nullable = false, unique = true)
+  private String name;
 
-    public Authority() {
-    }
+  public Authority() {
+  }
 
-    public Authority(UUID id, String name) {
-        super(id);
-        this.name = name;
-    }
+  public Authority(UUID id, String name) {
+    super(id);
+    this.name = name;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public Authority setName(String name) {
-        this.name = name;
-        return this;
-    }
+  public Authority setName(String name) {
+    this.name = name;
+    return this;
+  }
 }

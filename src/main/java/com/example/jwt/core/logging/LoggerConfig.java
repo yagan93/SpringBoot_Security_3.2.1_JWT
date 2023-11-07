@@ -11,9 +11,9 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class LoggerConfig {
 
-        @Bean
-        @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-        public Logger logger(InjectionPoint injectionPoint){
-            return LoggerFactory.getLogger(injectionPoint.getMethodParameter().getContainingClass());
-        }
+  @Bean
+  @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+  public Logger logger(InjectionPoint injectionPoint) {
+    return LoggerFactory.getLogger(injectionPoint.getMethodParameter().getContainingClass());
+  }
 }

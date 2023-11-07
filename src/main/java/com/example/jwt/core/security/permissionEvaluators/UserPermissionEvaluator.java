@@ -6,11 +6,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserPermissionEvaluator {
 
-    public UserPermissionEvaluator() {
-    }
+  public UserPermissionEvaluator() {
+  }
 
-    public boolean isUserAboveAge (User principal, int age) {
-        return true;
-    }
+  public boolean isUserAboveAge(User principal, int age) {
+    return true;
+  }
 
 }

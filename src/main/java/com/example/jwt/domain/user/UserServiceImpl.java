@@ -11,22 +11,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl extends ExtendedServiceImpl<User> implements UserService {
 
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+  private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
-    public UserServiceImpl(UserRepository repository, Logger logger, BCryptPasswordEncoder bCryptPasswordEncoder) {
-        super(repository, logger);
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-    }
+  @Autowired
+  public UserServiceImpl(UserRepository repository, Logger logger,
+      BCryptPasswordEncoder bCryptPasswordEncoder) {
+    super(repository, logger);
+    this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+  }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return ((UserRepository) repository).findByEmail(email).map(UserDetailsImpl::new).orElseThrow(() -> new UsernameNotFoundException(email));
-    }
+  @Override
+  public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    return ((UserRepository) repository).findByEmail(email).map(UserDetailsImpl::new)
+        .orElseThrow(() -> new UsernameNotFoundException(email));
+  }
 
-    @Override
-    public User register(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        return save(user);
-    }
+  @Override
+  public User register(User user) {
+    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    return save(user);
+  }
 }
