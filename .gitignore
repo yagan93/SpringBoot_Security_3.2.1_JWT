@@ -1,0 +1,12 @@
+target/
+*.iml
+.idea/*
+
+# Ignore Gradle files
+.gradle
+build/
+
+
+# Ignore application.properties files
+src/main/resources/application.properties
+
