@@ -1,4 +1,4 @@
-package com.example.jwt.core.security.permissionEvaluators;
+package com.example.jwt.core.security.permissionevaluators;
 
 import com.example.jwt.domain.user.User;
 import org.springframework.stereotype.Component;

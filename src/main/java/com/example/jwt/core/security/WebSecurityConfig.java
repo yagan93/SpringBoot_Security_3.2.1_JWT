@@ -11,8 +11,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -23,7 +24,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableMethodSecurity
 @EnableJpaAuditing(auditorAwareRef = "userAware")
 public class WebSecurityConfig {
 
@@ -42,18 +43,18 @@ public class WebSecurityConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     return http
-        .authorizeRequests(requests -> requests
-            .antMatchers(HttpMethod.POST, "/users/login").permitAll()
-            .antMatchers(HttpMethod.POST, "/users/register").permitAll()
+        .authorizeHttpRequests(requests -> requests
+            .requestMatchers(HttpMethod.POST, "/users/login").permitAll()
+            .requestMatchers(HttpMethod.POST, "/users/register").permitAll()
             .anyRequest().authenticated())
         .addFilterAfter(
             new CustomAuthenticationFilter(new AntPathRequestMatcher("/users/login", "POST"),
                 authenticationManager(), jwtProperties), UsernamePasswordAuthenticationFilter.class)
         .addFilterAfter(new CustomAuthorizationFilter(userService, jwtProperties),
             UsernamePasswordAuthenticationFilter.class)
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-        .cors().configurationSource(corsConfigurationSource()).and()
-        .csrf().disable()
+        .sessionManagement(mgmt -> mgmt.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+        .csrf(AbstractHttpConfigurer::disable)
         .build();
   }
 

@@ -1,8 +1,8 @@
 package com.example.jwt.domain.user.dto;
 
 import com.example.jwt.core.generic.ExtendedDTO;
+import jakarta.validation.constraints.Email;
 import java.util.UUID;
-import javax.validation.constraints.Email;
 
 public class UserRegisterDTO extends ExtendedDTO {
 

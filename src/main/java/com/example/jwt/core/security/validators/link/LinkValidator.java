@@ -1,7 +1,7 @@
 package com.example.jwt.core.security.validators.link;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.springframework.stereotype.Component;
 

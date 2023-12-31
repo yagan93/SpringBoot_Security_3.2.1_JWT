@@ -9,9 +9,6 @@ public class ResponseError implements Serializable {
   private LocalDate timeStamp;
   private Map<String, Object> errors;
 
-  public ResponseError() {
-  }
-
   public LocalDate getTimeStamp() {
     return timeStamp;
   }
